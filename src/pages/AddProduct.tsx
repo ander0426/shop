@@ -1,18 +1,10 @@
 import React, { useEffect, useState } from 'react'
 import { useForm } from '../hooks/useForm';
 import { useNavigate } from "react-router-dom";
+import { ReqResListado } from '../interfaces/products';
 
 
-export interface ReqResListado {
-    products: Array<Product>;
-}
 
-type Product = {
-    name: string;
-    price: number;
-    amount: number;
-    id: number;
-}
     
     export const AddProduct = () => {
         let navigate = useNavigate();
@@ -27,8 +19,8 @@ type Product = {
         const [values, handleInputChange, reset] = useForm(
             {
                 name: "",
-                price: 0,
-                amount: 0
+                price: "",
+                amount:"" 
             }
         );
         const { name, price, amount } = values
@@ -56,6 +48,7 @@ type Product = {
                 <div className="mb-3">
                     <label className="form-label">Name</label>
                     <input
+                        required={true}
                         name='name'
                         type="text"
                         className="form-control"
@@ -67,6 +60,7 @@ type Product = {
                 <div className="mb-3">
                     <label className="form-label">Price</label>
                     <input
+                        required={true}
                         name='price'
                         min="0"
                         type="number"
@@ -79,6 +73,7 @@ type Product = {
                 <div className="mb-3">
                     <label className="form-label">Amount</label>
                     <input
+                        required={true}
                         name='amount'
                         type="number"
                         className="form-control"

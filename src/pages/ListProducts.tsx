@@ -1,20 +1,13 @@
 import React, { useEffect, useState } from 'react'
 import { useDispatch } from 'react-redux/es/exports';
 import { addCart } from '../actions/cart';
-export interface ReqResListado {
-    products: Array<Product>;
-}
+import { ReqResListado } from '../interfaces/products';
 
-type Product = {
-    name: string;
-    price: number;
-    amount: number;
-    id: number;
-}
 
 type Input = {
     quantity: number;
 }
+
 export const ListProducts = () => {
     const dispatch = useDispatch();
     const [Products, setProducts] = useState<ReqResListado>();
@@ -91,8 +84,8 @@ export const ListProducts = () => {
     }, [Products])
     return (
         <div>
-            <div className="card">
-            <table className="table">
+            <div className="card table-responsive">
+            <table className="table table-hover">
                 <thead className="thead-dark">
                     <tr>
                         <th scope="col">#</th>
@@ -115,7 +108,7 @@ export const ListProducts = () => {
                                     <input
                                         name={"product-" + product.id}
                                         type="number"
-                                        className="form-control w-25"
+                                        className="form-control vw-25"
                                         aria-label="Quantity"
                                         aria-describedby="basic-addon1"
                                         min="0" max={product.amount}

@@ -2,16 +2,12 @@ import React, { useEffect, useState } from 'react'
 import { RootState } from "../store/store";
 import { useSelector } from 'react-redux/es/hooks/useSelector'
 import { Link } from "react-router-dom";
+import { Item } from '../interfaces/products';
 
-type Item = {
-    id: number;
-    name: string;
-    quantity: number;
-}
+
 
 export const Header = () => {
     const { cart }: any = useSelector((state: RootState) => state.cart)
-    console.log(cart)
     return (
         <nav className="navbar navbar-expand-lg bg-body-tertiary bg-primary" data-bs-theme="dark">
             <div className="container-fluid">

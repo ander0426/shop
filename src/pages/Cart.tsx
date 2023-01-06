@@ -4,27 +4,9 @@ import { RootState } from "../store/store";
 import { useDispatch } from 'react-redux/es/exports';
 import { clearCart } from '../actions/cart';
 import { useNavigate } from "react-router-dom";
-
-type Item = {
-    id: number;
-    name: string;
-    quantity: number;
-    price: number;
-    total: number;
-}
+import { Item, Product, ReqResListado } from '../interfaces/products';
 
 
-
-export interface ReqResListado {
-    products: Array<Product>;
-}
-
-type Product = {
-    name: string;
-    price: number;
-    amount: number;
-    id: number;
-}
 export const Cart = () => {
     let navigate = useNavigate();
     const [total, setTotal] = useState<number>()
