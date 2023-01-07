@@ -46,7 +46,7 @@ import { ReqResListado } from '../interfaces/products';
         <div className='card'>
             <form onSubmit={handleSubmit}>
                 <div className="mb-3">
-                    <label className="form-label">Name</label>
+                    <label className="form-label" id='Name' aria-labelledby="Name">Name</label>
                     <input
                         required={true}
                         name='name'
@@ -65,7 +65,6 @@ import { ReqResListado } from '../interfaces/products';
                         min="0"
                         type="number"
                         className="form-control"
-                        aria-describedby="name"
                         value={price}
                         onChange={handleInputChange}
                          />
@@ -77,7 +76,6 @@ import { ReqResListado } from '../interfaces/products';
                         name='amount'
                         type="number"
                         className="form-control"
-                        aria-describedby="name"
                         min="0"
                         value={amount}
                         onChange={handleInputChange}
